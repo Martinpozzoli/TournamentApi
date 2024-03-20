@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Model.Entities.Club">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAQAAAAAEkAAAAABAAAQAAAAgAIAAAAAAAAAAACA=</HashCode>
+      <FileName>Entities\Club.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.Match">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAIAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAABA=</HashCode>
+      <FileName>Entities\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.Player">
+    <Position X="8.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAQABAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Entities\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.Stadium">
+    <Position X="4.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAAAAAAIAAQCAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Stadium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.Standing">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Standing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.Tournament">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Entities\Tournament.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Model.Entities.PlayerPosition">
+    <Position X="10.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Entities\Player.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
