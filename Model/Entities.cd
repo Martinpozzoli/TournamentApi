@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Model.Entities.Club">
-    <Position X="6.5" Y="2.25" Width="1.5" />
+    <Position X="6.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABACAQAAAAAEkAAAAABAAAQAAAAgAIAAAAAAAAAAACA=</HashCode>
+      <HashCode>ABACAAAAAAAAAAAAAgAAAAQAAAAgAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Club.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Entities.Match">
-    <Position X="4.5" Y="1.25" Width="1.5" />
+    <Position X="4.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgACAAAIAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAABA=</HashCode>
+      <HashCode>AgACAAAIAAAAAAAAAACABAAAIAAAAAABAAAAAAAAABA=</HashCode>
       <FileName>Entities\Match.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Entities.Player">
-    <Position X="8.5" Y="3.75" Width="1.5" />
+    <Position X="6.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAgAAAAAAQABAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Entities\Player.cs</FileName>
@@ -31,15 +31,22 @@
   <Class Name="Model.Entities.Standing">
     <Position X="8.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Standing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Model.Entities.Tournament">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>ABACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Entities\Tournament.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Entities.ClubStanding">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAEkAAAAABAAAAAAAAAAAAAAAAAAACAASA=</HashCode>
+      <FileName>Entities\ClubStanding.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Model.Entities.PlayerPosition">
