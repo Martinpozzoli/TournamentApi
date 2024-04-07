@@ -1,7 +1,11 @@
-﻿namespace TournamentApi.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TournamentApi.Entities
 {
     public class Match
     {
+        [Key]
+        [Required]
         public int Id { get; set; }
         public Club TeamA { get; set;}
         public Club TeamB { get; set;}
