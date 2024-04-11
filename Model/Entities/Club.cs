@@ -11,7 +11,7 @@ namespace TournamentApi.Entities
         public string Name { get; set; }
         public string ShortName { get; set; }
         
-        [NotMapped]
+    
         public Standing Standing { get; set; }
 
         [ForeignKey(nameof(Standing))]

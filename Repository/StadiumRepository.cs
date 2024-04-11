@@ -9,7 +9,7 @@ using TournamentApi.Entities;
 
 namespace Repository
 {
-    public class StadiumRepository : Repository<Stadium>, ITournamentRepository
+    public class StadiumRepository : Repository<Stadium>, IStadiumRepository
     {
         public StadiumRepository(TournamentsDbContext context) : base(context)
         {
