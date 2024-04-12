@@ -21,6 +21,13 @@ builder.Services.AddSwaggerGen();
 //--------------Services------------------------ 
 builder.Services.AddDbContext<TournamentsDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStringEF")));
 
+/*
+ * Contrib Claudio - REVISAR
+ * builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("Repository")));
+ */
+
 //--------------Injections----------------------
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 builder.Services.AddScoped<IMatchRepository, MatchRepository>();

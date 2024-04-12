@@ -14,10 +14,9 @@ namespace TournamentApi.Entities
         public string Country { get; set; }
         public int Capacity {  get; set; }
 
-        [NotMapped]
-        public Club LocalTeam { get; set; }
+        public Club LocalClub { get; set; }
 
-        [ForeignKey(nameof(Club))]
-        public int LocalTeamId { get; set; }
+        [ForeignKey(nameof(LocalClub))]
+        public int LocalClubId { get; set; }
     }
 }

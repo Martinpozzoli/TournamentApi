@@ -13,7 +13,6 @@ namespace TournamentApi.Entities
         public int Position { get; set; }
         public DateTime BirthDay { get; set; }
 
-        [NotMapped]
         public Club Club { get; set; }
 
         [ForeignKey(nameof(Club))]

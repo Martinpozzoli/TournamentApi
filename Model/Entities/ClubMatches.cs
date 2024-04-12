@@ -15,8 +15,12 @@ namespace Model.Entities
         [Required]
         public int Id { get; set; }
 
+        public Club Club { get; set; }
+
         [ForeignKey(nameof(Club))]
         public int ClubId { get; set; }
+
+        public Match Match { get; set; }
 
         [ForeignKey(nameof(Match))]
         public int MatchId { get; set; }

@@ -18,10 +18,12 @@ namespace Repository.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // https://learn.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key
+
             //Data Seed
             //modelBuilder.ApplyConfiguration(new ClubsSeed());
             //modelBuilder.ApplyConfiguration(new MatchesSeed());
-            //modelBuilder.ApplyConfiguration(new PlayerssSeed());
+            //modelBuilder.ApplyConfiguration(new PlayersSeed());
             //modelBuilder.ApplyConfiguration(new TournamentsSeed());
             //modelBuilder.ApplyConfiguration(new StadiumsSeed());
 
@@ -32,7 +34,7 @@ namespace Repository.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Name=ConnectionStrings:ConnectionStringEF");
-            optionsBuilder.UseSqlServer(@"Server= DTOP\MSSQLSERVER01;Database=Tournaments_DB; Trusted_Connection=True; TrustServerCertificate=True");
+            //optionsBuilder.UseSqlServer(@"Server= DTOP\MSSQLSERVER01;Database=Tournaments_DB; Trusted_Connection=True; TrustServerCertificate=True");
         }
 
         public virtual DbSet<User> Users { get; set; }
@@ -43,7 +45,10 @@ namespace Repository.Data
         public virtual DbSet<Stadium> Stadiums { get; set; }
 
         // TODO: Evaluar si Standings debe ser persistido o si debe ser calculado en consulta
-        public virtual DbSet<Standing> Standingss { get; set; }
+        public virtual DbSet<Standing> Standings { get; set; }
 
+        public virtual DbSet<ClubMatches> ClubMatches { get; set; }
+
+        public virtual DbSet<ClubPlayers> ClubPlayers { get; set; }
     }
 }

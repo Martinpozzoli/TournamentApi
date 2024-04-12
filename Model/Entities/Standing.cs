@@ -9,7 +9,6 @@ namespace TournamentApi.Entities
         [Required]
         public int Id { get; set; }
 
-        [NotMapped]
         public Club Club { get; set; }
 
         [ForeignKey(nameof(Club))]

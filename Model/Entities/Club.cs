@@ -10,8 +10,7 @@ namespace TournamentApi.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        
-    
+
         public Standing Standing { get; set; }
 
         [ForeignKey(nameof(Standing))]
