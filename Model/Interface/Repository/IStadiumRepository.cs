@@ -1,5 +1,4 @@
-﻿
-namespace Repository.Interface
+﻿namespace Model.Interface
 {
     public interface IStadiumRepository
     {

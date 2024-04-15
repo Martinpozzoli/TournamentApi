@@ -1,11 +1,11 @@
-﻿using Repository.Interface;
+﻿using Model.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.UnitOfWork
+namespace Model.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -15,7 +15,6 @@ namespace Repository.UnitOfWork
         public IStadiumRepository StadiumRepository { get; }
         public ITournamentRepository TournamentRepository { get; }
         public IUserRepository UserRepository { get; }
-
 
         Task<int> Save();
     }
