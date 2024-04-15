@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TournamentApi.Entities
+namespace Model.Entities
 {
     public class Standing
     {
@@ -9,13 +9,19 @@ namespace TournamentApi.Entities
         [Required]
         public int Id { get; set; }
 
-        public Club Club { get; set; }
+        public virtual Tournament Tournament { get; set; }
+
+        [ForeignKey(nameof(Tournament))]
+        public int TournamentId { get; set; }
+
+        public int Position { get; set; }
+
+        public virtual Club Club { get; set; }
 
         [ForeignKey(nameof(Club))]
         public int ClubId { get; set; }
 
-        public int Position { get; set; }
-        public int GoalsAgaint { get; set; }
+        public int GoalsAgainst { get; set; }
         public int GoalsFor { get; set; }
     }
 }
