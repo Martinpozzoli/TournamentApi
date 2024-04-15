@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Model.Interface;
+using Repository.UnitOfWork;
+using TournamentApi.DTO;
+using TournamentApi.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +12,24 @@ namespace TournamentApi.Controllers
     [ApiController]
     public class ClubsController : ControllerBase
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ClubsController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         // GET: api/<ClubsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<List<ClubResponse>>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var clubs = await _unitOfWork.ClubRepository.GetAll();
+            List<ClubResponse> clubsResponse = new List<ClubResponse>();
+            foreach (var club in clubs)
+            {
+                clubsResponse.Add(DtoMapper.MapClubToClubResponse(club));
+            }
+            return clubsResponse;
         }
 
         // GET api/<ClubsController>/5
@@ -24,20 +41,14 @@ namespace TournamentApi.Controllers
 
         // POST api/<ClubsController>
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        public void Post([FromBody] string value) { }
 
         // PUT api/<ClubsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        public void Put(int id, [FromBody] string value) { }
 
         // DELETE api/<ClubsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        public void Delete(int id) { }
     }
 }
