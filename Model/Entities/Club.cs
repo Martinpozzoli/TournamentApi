@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TournamentApi.Entities
+namespace Model.Entities
 {
     public class Club
     {
@@ -11,15 +11,13 @@ namespace TournamentApi.Entities
         public string Name { get; set; }
         public string ShortName { get; set; }
 
-        public Standing Standing { get; set; }
+        public virtual ICollection<Tournament> Tournaments { get; set; }
+        public virtual ICollection<Standing> Standings { get; set; }
 
-        [ForeignKey(nameof(Standing))]
-        public int StandingId { get; set; }
+        public virtual ICollection<Match> LocalMatches { get; set; }
 
-        [NotMapped]
-        public List<Match> Matches { get; set; }  // ClubMatches aux table
+        public virtual ICollection<Match> VisitorMatches { get; set; }
 
-        [NotMapped]
-        public List<Player> Players { get; set; }  // ClubPlayers aux table
+        public virtual ICollection<Player> Players { get; set; } // ClubPlayers aux table
     }
 }

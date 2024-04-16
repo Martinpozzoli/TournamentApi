@@ -1,12 +1,13 @@
 ﻿using Repository.Data;
-using Repository.Interface;
-using TournamentApi.Entities;
+using Model.Interface;
+using Model.Entities;
 
 namespace Repository
 {
     public class MatchRepository : Repository<Match>, IMatchRepository
     {
-        public MatchRepository(TournamentsDbContext context) : base(context)
+        public MatchRepository(TournamentsDbContext context)
+            : base(context)
         {
             // TODO: Add tasks
         }

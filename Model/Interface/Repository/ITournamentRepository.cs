@@ -1,6 +1,6 @@
 ﻿using Model.Entities;
 
-namespace Repository.Interface
+namespace Model.Interface
 {
     public interface ITournamentRepository
     {

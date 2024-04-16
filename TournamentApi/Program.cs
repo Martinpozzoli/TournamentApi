@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
 using Repository.Data;
-using Repository.Interface;
+using Model.Interface;
 using Repository.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,16 +10,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//--------------JWT----------------------------- 
+//--------------JWT-----------------------------
 
-    // TODO: JWT ...
+// TODO: JWT ...
 
-//--------------Services------------------------ 
-builder.Services.AddDbContext<TournamentsDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStringEF")));
+//--------------Services------------------------
+builder.Services.AddDbContext<TournamentsDbContext>(
+    op => op.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStringEF"))
+);
 
 /*
  * Contrib Claudio - REVISAR
@@ -34,19 +37,23 @@ builder.Services.AddScoped<IMatchRepository, MatchRepository>();
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 builder.Services.AddScoped<IStadiumRepository, StadiumRepository>();
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
+builder.Services.AddScoped<IStandingRepository, StandingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(
+    x =>
+        new UnitOfWork(
+            x.GetRequiredService<TournamentsDbContext>(),
+            x.GetRequiredService<IClubRepository>(),
+            x.GetRequiredService<IMatchRepository>(),
+            x.GetRequiredService<IPlayerRepository>(),
+            x.GetRequiredService<IStadiumRepository>(),
+            x.GetRequiredService<ITournamentRepository>(),
+            x.GetRequiredService<IStandingRepository>(),
+            x.GetRequiredService<IUserRepository>()
+        )
+);
 
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(x => new UnitOfWork(
-    x.GetRequiredService<TournamentsDbContext>(),
-    x.GetRequiredService<IClubRepository>(),
-    x.GetRequiredService<IMatchRepository>(),
-    x.GetRequiredService<IPlayerRepository>(),
-    x.GetRequiredService<IStadiumRepository>(), 
-    x.GetRequiredService<ITournamentRepository>(),
-    x.GetRequiredService<IUserRepository>()
-));
 //---------------------------------------------------------------------
 
 var app = builder.Build();

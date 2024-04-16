@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repository.Data;
-using Repository.Interface;
+using Model.Interface;
 
 namespace Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T>
+        where T : class
     {
         protected readonly TournamentsDbContext _context;
+
         public Repository(TournamentsDbContext context)
         {
             _context = context;
