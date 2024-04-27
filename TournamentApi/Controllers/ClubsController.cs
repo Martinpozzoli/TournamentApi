@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Model.Interface;
 using Repository.UnitOfWork;
 using TournamentApi.DTO;
@@ -41,6 +42,7 @@ namespace TournamentApi.Controllers
 
         // POST api/<ClubsController>
         [HttpPost]
+        [Authorize]
         public void Post([FromBody] string value) { }
 
         // PUT api/<ClubsController>/5

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Entities;
 using Repository.Data.DataSeed;
+using WebApp_Parcial_1.Data.DataSeed;
 
 namespace Repository.Data
 {
@@ -24,7 +25,7 @@ namespace Repository.Data
             modelBuilder.ApplyConfiguration(new StandingsSeed());
 
             // TODO: Borrar UsersSeed cuando se use JWT
-            //modelBuilder.ApplyConfiguration(new UsersSeed());
+            modelBuilder.ApplyConfiguration(new UsersSeed());
 
             // Club navigations
 
