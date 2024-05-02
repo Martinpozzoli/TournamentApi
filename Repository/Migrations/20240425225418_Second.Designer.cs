@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.Data;
 
@@ -11,9 +12,11 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(TournamentsDbContext))]
-    partial class TournamentsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240425225418_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -494,32 +497,6 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "pepe@mail.com",
-                            Name = "Pepe",
-                            Password = "123456",
-                            UserName = "pepe"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "pepito@mail.com",
-                            Name = "Pepito",
-                            Password = "456789",
-                            UserName = "pepito"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "pepon@mail.com",
-                            Name = "Pepon",
-                            Password = "111111",
-                            UserName = "pepon"
-                        });
                 });
 
             modelBuilder.Entity("ClubTournament", b =>
