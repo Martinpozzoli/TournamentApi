@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Entities;
 using Repository.Data.DataSeed;
-using WebApp_Parcial_1.Data.DataSeed;
 
 namespace Repository.Data
 {

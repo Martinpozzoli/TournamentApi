@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Entities;
 
-namespace WebApp_Parcial_1.Data.DataSeed
+namespace Repository.Data.DataSeed
 {
     public class UsersSeed : IEntityTypeConfiguration<User>
     {
