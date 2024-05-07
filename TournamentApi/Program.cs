@@ -4,6 +4,7 @@ using Repository;
 using Repository.Data;
 using Model.Interface;
 using Repository.UnitOfWork;
+using TournamentApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,5 +71,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();
