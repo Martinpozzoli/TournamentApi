@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.Interface;
+using Model.Entities;
 using Repository.UnitOfWork;
 using TournamentApi.DTO;
 using TournamentApi.Services;
@@ -33,24 +34,79 @@ namespace TournamentApi.Controllers
             return clubsResponse;
         }
 
-        // GET api/<ClubsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/<ClubsController>/name
+        [HttpGet("{name}")]
+        public async Task<ActionResult<string>> GetByName(string name)
         {
-            return "value";
+            var club = await _unitOfWork.ClubRepository.GetByName(name);
+
+            if (club.Count != 0)
+                return Ok(club);
+            else
+                return NotFound();
         }
 
+        // CREATE
         // POST api/<ClubsController>
         [HttpPost]
         [Authorize]
-        public void Post([FromBody] string value) { }
+        public async Task<ActionResult<Club>> CreateNewClub([FromBody] NewClubDTO newClub)
+        {
+            if (newClub == null)
+                return BadRequest("No se pudo crear el recurso");
+            else
+            {
+                var club = await _unitOfWork.ClubRepository.CreateNewClub(newClub.Name, newClub.ShortName, newClub.Players);
 
-        // PUT api/<ClubsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) { }
+                if (club != null)
+                    return new ObjectResult(club) { StatusCode = StatusCodes.Status201Created };
+                else
+                    return StatusCode(StatusCodes.Status422UnprocessableEntity);
+            }
 
-        // DELETE api/<ClubsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id) { }
+        }
+
+        // REPLACE
+        // PUT api/<ClubsController>/name
+        [HttpPut("{name}")]
+        [Authorize]
+        public async Task<ActionResult<Club>> UpdateClub(string name, [FromBody] ClubUpdateDTO clubUpdate)
+        {
+            if (name == "" || clubUpdate == null)
+                return BadRequest();
+            else
+            {
+                var clubs = await _unitOfWork.ClubRepository.GetByName(name);
+
+                if (clubs.Count != 1)
+                    return Conflict("Se encontró más de un club con ese nombre, sea más específico");
+                else
+                {
+                    var updatedClub = await _unitOfWork.ClubRepository.UpdateClub(name, clubUpdate.ShortName, clubUpdate.Players);
+
+                    if (updatedClub != null)
+                        return new ObjectResult(updatedClub) { StatusCode = StatusCodes.Status201Created };
+                    else
+                        return StatusCode(StatusCodes.Status304NotModified);
+                }
+            }
+        }
+
+
+
+        // DELETE api/<ClubsController>/name
+        [HttpDelete("{name}")]
+        [Authorize]
+        public async Task<ActionResult<Club>> Delete(string name)
+        {
+
+            var club = await _unitOfWork.ClubRepository.DeleteClub(name);
+
+            if (club != null)
+                return Ok(club);
+            else
+                return NotFound();
+        }
+
     }
 }

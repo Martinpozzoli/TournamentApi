@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Model.Entities;
 using Repository.Data.DataSeed;
-using WebApp_Parcial_1.Data.DataSeed;
 
 namespace Repository.Data
 {
@@ -18,10 +17,10 @@ namespace Repository.Data
             // base.OnModelCreating(modelBuilder);
             //Data Seed
             modelBuilder.ApplyConfiguration(new ClubsSeed());
-            //modelBuilder.ApplyConfiguration(new MatchesSeed());
+            modelBuilder.ApplyConfiguration(new StadiumsSeed());
+            modelBuilder.ApplyConfiguration(new MatchesSeed());
             //modelBuilder.ApplyConfiguration(new PlayersSeed());
             modelBuilder.ApplyConfiguration(new TournamentsSeed());
-            //modelBuilder.ApplyConfiguration(new StadiumsSeed());
             modelBuilder.ApplyConfiguration(new StandingsSeed());
 
             // TODO: Borrar UsersSeed cuando se use JWT

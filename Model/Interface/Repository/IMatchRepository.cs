@@ -1,7 +1,9 @@
-﻿namespace Model.Interface
+﻿using Model.Entities;
+
+namespace Model.Interface
 {
-    public interface IMatchRepository
+    public interface IMatchRepository : IRepository<Match>
     {
-        // TODO: Add tasks prototypes
+        Task<Match> SetResult(int id, int score1, int score2);
     }
 }

@@ -27,5 +27,9 @@ namespace Model.Entities
         [ForeignKey(nameof(Stadium))]
         public int StadiumId { get; set; }
         public virtual Stadium Stadium { get; set; }
+
+        [ForeignKey(nameof(Tournament))]
+        public int TournamentId { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }
