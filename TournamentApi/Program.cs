@@ -4,6 +4,7 @@ using Repository;
 using Repository.Data;
 using Model.Interface;
 using Repository.UnitOfWork;
+using TournamentApi.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -13,7 +14,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(
+   /*
+    options =>
+    {
+        options.Filters.Add<CustomExceptionFilter>();
+    }
+    */
+);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -119,5 +127,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<LoggingMiddleware>();
 
 app.Run();
